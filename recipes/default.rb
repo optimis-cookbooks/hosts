@@ -11,11 +11,11 @@ node['hosts'].each do |host|
       aliases host['aliases']
     end
 
-    if host['comment'] do
+    if host['comment']
       comment host['comment']
     end
 
-    if host['priority'] do
+    if host['priority']
       priority host['priority']
     end
   end
