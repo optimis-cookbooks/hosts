@@ -7,16 +7,8 @@ node['hosts'].each do |host|
   hostsfile_entry host['ip'] do
     hostname host['name']
 
-    if host['aliases']
-      aliases host['aliases']
-    end
-
-    if host['comment']
-      comment host['comment']
-    end
-
-    if host['priority']
-      priority host['priority']
-    end
+    aliases host['aliases'] if host['aliases']
+    comment host['comment'] if host['comment']
+    priority host['priority'] if host['priority']
   end
 end
