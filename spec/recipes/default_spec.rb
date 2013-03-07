@@ -29,10 +29,6 @@ describe 'chef-hostsfile::default' do
         end.converge 'chef-hostsfile::default'
       end
 
-      it 'should include the hostsfile cookbook' do
-        chef_run.should include_recipe 'hostsfile'
-      end
-
       it 'should call the LWRP definition for hostsfile' do
         Chef::Recipe.any_instance.should_receive(:hostsfile_entry).with 'Test'
         chef_run
