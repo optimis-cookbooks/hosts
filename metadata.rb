@@ -1,3 +1,5 @@
+name              'hosts'
+
 maintainer        'OptimisCorp., Inc.'
 maintainer_email  'ops+cookbooks@optimiscorp.com'
 
@@ -8,7 +10,7 @@ long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 
 version           '0.0.1'
 
-recipe            'chef-hostsfile::default', 'Configures /etc/hosts entries.'
+recipe            'hostsfile::default', 'Configures /etc/hosts entries.'
 
 %w{redhat centos scientific fedora debian ubuntu arch freebsd amazon}.each do |os|
   supports os
