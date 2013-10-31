@@ -1,11 +1,13 @@
-raise 'No localhost entries found for node.' unless node['localhost']
+raise 'No localhost nor host entries found for node.' unless node['localhost'] or node['hosts']
 
-localhost = node['localhost']
-hostsfile_entry localhost['ip'] do
-  hostname localhost['name']
-  aliases localhost['aliases'] if localhost['aliases']
-  comment localhost['comment'] if localhost['comment']
-  priority localhost['priority'] if localhost['priority']
+if node['localhost']
+  localhost = node['localhost']
+  hostsfile_entry localhost['ip'] do
+    hostname localhost['name']
+    aliases localhost['aliases'] if localhost['aliases']
+    comment localhost['comment'] if localhost['comment']
+    priority localhost['priority'] if localhost['priority']
+  end
 end
 
 if node['hosts']
