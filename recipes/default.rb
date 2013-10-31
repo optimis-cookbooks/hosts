@@ -1,23 +1,15 @@
-raise 'No localhost nor host entries found for node.' unless node['localhost'] or node['hosts']
 
-if node['localhost']
-  localhost = node['localhost']
-  hostsfile_entry localhost['ip'] do
-    hostname localhost['name']
-    aliases localhost['aliases'] if localhost['aliases']
-    comment localhost['comment'] if localhost['comment']
-    priority localhost['priority'] if localhost['priority']
-  end
-end
+hosts = []
+hosts << node['localhost'] if node['localhost']
+hosts += node['hosts'] if node['hosts']
 
-if node['hosts']
-  node['hosts'].each do |host|
-    hostsfile_entry host['ip'] do
-      hostname host['name']
+raise 'No localhost nor hosts found for node.' if hosts.empty?
 
-      aliases host['aliases'] if host['aliases']
-      comment host['comment'] if host['comment']
-      priority host['priority'] if host['priority']
-    end
+hosts.each do |host|
+  hostsfile_entry host['ip'] do
+    hostname host['name']
+    aliases host['aliases'] if host['aliases']
+    comment host['comment'] if host['comment']
+    priority host['priority'] if host['priority']
   end
 end
