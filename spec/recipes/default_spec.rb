@@ -5,7 +5,7 @@ describe 'hosts::default' do
 
   context 'when no hosts configuration exists for node' do
     it 'should raise a configuration error' do
-      expect { chef_run }.to raise_error 'No hosts entries found for node.'
+      expect { chef_run }.to raise_error
     end
   end
 
@@ -18,7 +18,7 @@ describe 'hosts::default' do
       end
 
       it 'should not raise a missing hosts error' do
-        expect { chef_run }.to_not raise_error 'No hosts entries found for node.'
+        expect { chef_run }.to_not raise_error
       end
     end
 
