@@ -1,0 +1,59 @@
+{
+  "name": "hosts",
+  "description": "Configures /etc/hosts entries using node attributes.",
+  "long_description": "Chef Hosts Cookbook\n===================\n\nUse **hostsfile** LWRP to update /etc/hosts entries based on attributes.\n\n## Example\n\n1. localhost\n  \"localhost\" is for configure localhost name and aliases for 127.0.0.1. It is suggested to set this attribute in each node.\n\n```JSON\n\"localhost\": {\n  \"ip\": \"127.0.0.1\",\n  \"name\": \"funny.hostname\",\n  \"comment\": \"Woooooo\", //optional\n  \"priority\": 20,       //optional\n  \"aliases\": [          //optional\n    \"localhost\",\n    \"localhost.localdomain\"\n  ]\n}\n```\n\n2. hosts\n  \"hosts\" is an array of hostname configuration. The following is an example of node attributes for the /etc/host entry.\n\n```JSON\n\"hosts\": [\n  {\n    \"ip\": \"127.0.0.127\",\n    \"name\": \"internal.hostname\",\n    \"comment\": \"...\", //optional\n    \"priority\": 11,   //optional\n    \"aliases\": [      //optional\n      \"host1\",\n      \"host2\"\n    ]\n  }\n]\n```\n",
+  "maintainer": "OptimisCorp., Inc.",
+  "maintainer_email": "ops+cookbooks@optimiscorp.com",
+  "license": "Apache 2.0",
+  "platforms": {
+    "redhat": ">= 0.0.0",
+    "centos": ">= 0.0.0",
+    "scientific": ">= 0.0.0",
+    "fedora": ">= 0.0.0",
+    "debian": ">= 0.0.0",
+    "ubuntu": ">= 0.0.0",
+    "arch": ">= 0.0.0",
+    "freebsd": ">= 0.0.0",
+    "amazon": ">= 0.0.0"
+  },
+  "dependencies": {
+    "hostsfile": ">= 0.0.0"
+  },
+  "recommendations": {
+
+  },
+  "suggestions": {
+
+  },
+  "conflicting": {
+
+  },
+  "providing": {
+
+  },
+  "replacing": {
+
+  },
+  "attributes": {
+    "hosts": {
+      "display_name": "Hosts",
+      "description": "An array of /etc/hosts entries.",
+      "type": "array",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "required": "optional",
+      "recipes": [
+
+      ]
+    }
+  },
+  "groupings": {
+
+  },
+  "recipes": {
+    "hostsfile::default": "Configures /etc/hosts entries."
+  },
+  "version": "0.1.0"
+}
