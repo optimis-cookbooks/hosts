@@ -3,7 +3,7 @@ hosts = []
 hosts << node['localhost'] if node['localhost']
 hosts += node['hosts'] if node['hosts']
 
-raise 'No localhost nor hosts found for node.' if hosts.empty? and node['hosts'].nil?
+puts 'No localhost nor hosts found for node.' if hosts.empty? and node['hosts'].nil?
 
 hosts.each do |host|
   hostsfile_entry host['ip'] do
